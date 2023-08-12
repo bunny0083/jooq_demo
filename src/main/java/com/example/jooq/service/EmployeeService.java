@@ -5,7 +5,6 @@ import static nu.studer.sample.Tables.EMPLOYEE;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import nu.studer.sample.tables.pojos.Employee;
-import nu.studer.sample.tables.records.EmployeeRecord;
 import org.jooq.DSLContext;
 import org.springframework.stereotype.Service;
 

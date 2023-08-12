@@ -1,0 +1,2 @@
+CREATE TABLE department (id int primary key, code varchar(4) not null , name varchar(255) not null);
+CREATE TABLE employee_department_mapping (id int primary key, employee_id int REFERENCES employee(id), department_id int REFERENCES department(id));
