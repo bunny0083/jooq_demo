@@ -2,11 +2,13 @@ import org.jooq.meta.jaxb.ForcedType
 import org.jooq.meta.jaxb.Logging
 import org.jooq.meta.jaxb.Property
 
+
 plugins {
     java
     id("org.springframework.boot") version "3.1.2"
     id("io.spring.dependency-management") version "1.1.2"
     id("nu.studer.jooq") version "8.2"
+    id("org.flywaydb.flyway") version "9.16.3"
 }
 
 group = "com.example"
@@ -45,11 +47,6 @@ dependencies {
 }
 
 buildscript {
-//    configurations["classpath"].resolutionStrategy.eachDependency {
-//        if (requested.group == "org.jooq") {
-//            useVersion("3.17.3")
-//        }
-//    }
     repositories {
         mavenLocal()
         mavenCentral()
@@ -59,6 +56,13 @@ buildscript {
 tasks.withType<Test> {
     useJUnitPlatform()
 }
+
+flyway {
+    url = "jdbc:postgresql://localhost:5432/mydatabase"
+    user = "myuser"
+    password = "secret"
+}
+
 
 jooq {
     version.set("3.18.4")  // default (can be omitted)
